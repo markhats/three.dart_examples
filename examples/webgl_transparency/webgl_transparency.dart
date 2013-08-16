@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:vector_math/vector_math.dart';
 import 'package:three/three.dart';
 
+const int NUM_SPHERES     = 50;
+
 class WebGL_Transparency  {
   Element container;
 
@@ -36,7 +38,7 @@ class WebGL_Transparency  {
     directionallight.position.setValues(0.0, 0.0, 0.0);
     camera.add(directionallight);
 
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < NUM_SPHERES; i++) {
 
       SphereGeometry spheregeometry = new SphereGeometry(3.3, 10, 10);
 
