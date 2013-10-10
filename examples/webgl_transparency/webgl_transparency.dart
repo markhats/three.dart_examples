@@ -14,7 +14,8 @@ class WebGL_Transparency  {
 
   void run() {
     init();
-    animate(0);
+    // animate(0);
+    renderer.render( scene, camera );
   }
 
   void init() {
@@ -64,6 +65,7 @@ class WebGL_Transparency  {
           reflectivity: 200,
           shading     : SmoothShading,
           side        : FrontSide,
+          transparent : true,
           opacity     : 0.5
       );
 
@@ -87,7 +89,12 @@ class WebGL_Transparency  {
 
     container.nodes.add( renderer.domElement );
 
+    renderer.domElement.onMouseDown.listen(onMouseDown);
     window.onResize.listen(onWindowResize);
+  }
+
+  onMouseDown(e) {
+    renderer.render( scene, camera );
   }
 
   onWindowResize(e) {
